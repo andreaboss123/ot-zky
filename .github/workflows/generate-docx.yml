@@ -1,0 +1,51 @@
+name: Generate DOCX Document
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'docs/src/otazky.md'
+      - 'scripts/generate_docx.py'
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+        
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        
+    - name: Generate DOCX document
+      run: |
+        python scripts/generate_docx.py
+        
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: maturitni-otazky-ucetnictvi
+        path: output/maturitni_otazky_ucetnictvi.docx
+        retention-days: 90
+        
+    - name: Commit generated document
+      run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git add output/maturitni_otazky_ucetnictvi.docx
+        git diff --staged --quiet || git commit -m "Auto-generate: Update maturitni_otazky_ucetnictvi.docx"
+        
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.ref }}
