@@ -61,7 +61,9 @@ ot-zky/
 - **Struktura / Structure:**
   - Titulní strana
   - Obsah
-  - Kapitoly 1–22 (každá na nové stránce)
+  - 22 otázek - každá otázka a odpověď na samostatných stránkách:
+    - **Otázka** (levá/lichá stránka): Pouze název otázky (vycentrovaný)
+    - **Odpověď** (pravá/sudá stránka): Kompletní odpověď na otázku
   - Číslování stránek od 1. kapitoly
 
 ---

@@ -123,15 +123,36 @@ def parse_markdown(md_file):
 
 def add_chapter(doc, chapter_num, chapter):
     """Přidá kapitolu do dokumentu / Add chapter to document"""
-    # Nadpis kapitoly
-    heading = doc.add_paragraph()
-    heading_run = heading.add_run(f'{chapter_num}. {chapter["title"]}')
-    set_font(heading_run, size=14, bold=True)
-    heading.paragraph_format.line_spacing_rule = WD_LINE_SPACING.ONE_POINT_FIVE
+    # STRÁNKA 1: Pouze otázka (vycentrovaná)
+    # Question page - centered and prominent
+    question_para = doc.add_paragraph()
+    question_para.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    
+    # Přidání vertikálního prostoru před otázkou
+    for _ in range(8):
+        doc.add_paragraph()
+    
+    # Samotná otázka
+    question_heading = doc.add_paragraph()
+    question_heading.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    question_run = question_heading.add_run(f'{chapter_num}. {chapter["title"]}')
+    set_font(question_run, size=16, bold=True)
+    question_heading.paragraph_format.line_spacing_rule = WD_LINE_SPACING.ONE_POINT_FIVE
+    
+    # Nová stránka pro odpověď
+    doc.add_page_break()
+    
+    # STRÁNKA 2: Odpověď
+    # Answer page with content
+    # Nadpis odpovědi (menší než otázka)
+    answer_heading = doc.add_paragraph()
+    answer_heading_run = answer_heading.add_run(f'Odpověď {chapter_num}:')
+    set_font(answer_heading_run, size=14, bold=True)
+    answer_heading.paragraph_format.line_spacing_rule = WD_LINE_SPACING.ONE_POINT_FIVE
     
     doc.add_paragraph()
     
-    # Obsah kapitoly
+    # Obsah odpovědi
     content_text = '\n'.join(chapter['content']).strip()
     
     # Rozdělení na odstavce
@@ -139,7 +160,7 @@ def add_chapter(doc, chapter_num, chapter):
     
     for para_text in paragraphs:
         if para_text.strip():
-            # Odstranění markdown formátování
+            # Odstranení markdown formátování
             para_text = re.sub(r'\*\*(.*?)\*\*', r'\1', para_text)  # bold
             para_text = re.sub(r'\*(.*?)\*', r'\1', para_text)  # italic
             
@@ -149,7 +170,7 @@ def add_chapter(doc, chapter_num, chapter):
             para.paragraph_format.line_spacing_rule = WD_LINE_SPACING.ONE_POINT_FIVE
             para.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
     
-    # Nová stránka po každé kapitole
+    # Nová stránka po odpovědi
     doc.add_page_break()
 
 
