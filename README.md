@@ -2,9 +2,9 @@
 
 ## Kde najdu hotový dokument? / Where can I find the done document?
 
-**Aktuální stav:** Dokument ještě nebyl vygenerován. Repository je ve fázi přípravy.
+**✅ Dokument je připraven!** Najdete ho v adresáři `output/maturitni_otazky_ucetnictvi.docx`
 
-**Current status:** The document has not been generated yet. The repository is in the preparation phase.
+**✅ The document is ready!** You can find it in the `output/maturitni_otazky_ucetnictvi.docx` directory
 
 ---
 
@@ -73,9 +73,28 @@ python scripts/generate_docx.py
 ## Status
 
 - [x] Vytvořena struktura repozitáře
-- [ ] Napsán obsah otázek
-- [ ] Vytvořen generovací skript
-- [ ] Nastaveno GitHub Actions
-- [ ] Vygenerován finální dokument
+- [x] Napsán obsah otázek (22 kapitol)
+- [x] Vytvořen generovací skript
+- [x] Nastaveno GitHub Actions
+- [x] Vygenerován finální dokument
 
-**➡️ Finální dokument bude k dispozici v adresáři `output/` po dokončení výše uvedených kroků.**
+**✅ Finální dokument je k dispozici v adresáři `output/maturitni_otazky_ucetnictvi.docx`**
+
+---
+
+## Jak vygenerovat dokument znovu / How to regenerate the document
+
+Pokud chcete upravit obsah a vygenerovat dokument znovu:
+
+1. **Upravte otázky** v souboru `docs/src/otazky.md`
+2. **Spusťte generátor:**
+   ```bash
+   # Instalace závislostí (pokud ještě nejsou nainstalované)
+   pip install -r requirements.txt
+   
+   # Generování dokumentu
+   python scripts/generate_docx.py
+   ```
+3. **Nový dokument** najdete v `output/maturitni_otazky_ucetnictvi.docx`
+
+**Automatické generování:** Po každém push do main větve s úpravami v `docs/src/otazky.md` se dokument automaticky vygeneruje pomocí GitHub Actions.
