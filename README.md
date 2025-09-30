@@ -1,58 +1,54 @@
 # Maturitní otázky – Účetnictví (ČR)
 
-## Kde najdu hotový dokument? / Where can I find the done document?
+## 📄 Kde najdu hotový dokument? / Where can I find the done document?
 
-**✅ Dokument je připraven!** Najdete ho v adresáři `output/maturitni_otazky_ucetnictvi.docx`
+**✅ Dokument je připraven!** 
 
-**✅ The document is ready!** You can find it in the `output/maturitni_otazky_ucetnictvi.docx` directory
+### Jak stáhnout dokument / How to download the document:
 
----
+**Krok 1:** Otevřete složku `output` v tomto repozitáři  
+**Step 1:** Open the `output` folder in this repository
 
-## Plánovaná struktura repozitáře / Planned Repository Structure
+**Krok 2:** Klikněte na soubor `maturitni_otazky_ucetnictvi.docx`  
+**Step 2:** Click on the file `maturitni_otazky_ucetnictvi.docx`
 
-Po dokončení bude repozitář obsahovat:
+**Krok 3:** Stiskněte tlačítko "Download" (nebo "Stáhnout") v pravém horním rohu  
+**Step 3:** Press the "Download" button in the top right corner
 
-- **`output/`** – Zde bude finální Word dokument (.docx) s 22 otázkami
-  - **This is where the final document will be located**
-- **`docs/src/otazky.md`** – Zdrojový obsah v Markdownu (22 kapitol)
-- **`scripts/generate_docx.py`** – Python skript pro generování .docx
-- **`.github/workflows/`** – GitHub Actions workflow pro automatické sestavení
+### Přímá cesta k souboru / Direct path to the file:
 
----
+```
+ot-zky/
+└── output/
+    └── maturitni_otazky_ucetnictvi.docx  ← ⭐ DOKUMENT JE TADY / THE DOCUMENT IS HERE
+```
 
-## Co je třeba udělat / What needs to be done
+**GitHub URL:** [Click here to view the file on GitHub](../../tree/main/output)
 
-1. **Vyplnit obsah otázek** v souboru `docs/src/otazky.md`
-   - 22 kapitol, každá cca 1× A4
-   
-2. **Vytvořit Python skript** `scripts/generate_docx.py`
-   - Použít knihovnu `python-docx`
-   - Formát: Times New Roman 12, řádkování 1.5, okraje 2.5 cm
-   - Titulní strana, obsah, kapitoly 1–22 (každá na nové stránce)
-   - Číslování stránek od 1. kapitoly
-   
-3. **Nastavit GitHub Actions workflow**
-   - Automatické generování .docx při změnách
-   - Uložení výstupu do `output/`
-
-4. **Spustit generování**
-   - Hotový dokument se objeví v adresáři `output/`
+Nebo použijte tento přímý odkaz k souboru:  
+Or use this direct link to the file:
+- `output/maturitni_otazky_ucetnictvi.docx` (43 KB)
 
 ---
 
-## Jak používat / How to use
+## Struktura repozitáře / Repository Structure
 
-Po dokončení nastavení:
+**Aktuální struktura / Current structure:**
 
-```bash
-# Instalace závislostí
-pip install python-docx
-
-# Generování dokumentu
-python scripts/generate_docx.py
-
-# Výstup bude v:
-# output/maturitni_otazky_ucetnictvi.docx
+```
+ot-zky/
+├── output/                           ← 📂 Vygenerované dokumenty / Generated documents
+│   └── maturitni_otazky_ucetnictvi.docx  (43 KB)
+├── docs/
+│   └── src/
+│       └── otazky.md                 ← 📝 Zdrojový obsah (22 kapitol) / Source content
+├── scripts/
+│   └── generate_docx.py              ← 🐍 Python skript pro generování / Generation script
+├── .github/
+│   └── workflows/
+│       └── generate-docx.yml         ← ⚙️ GitHub Actions workflow
+├── requirements.txt                  ← 📦 Python závislosti / Dependencies
+└── README.md                         ← 📖 Tento soubor / This file
 ```
 
 ---
