@@ -6,4 +6,4 @@ Repozitář bude obsahovat:
 - Python skript pro generování .docx,
 - GitHub Actions workflow pro automatické sestavení.
 
-Formát: Times New Roman 12, řádkování 1.5, okraje 2.5 cm, titulní strana, obsah, kapitoly 1–22 (každá na nové stránce), číslování stránek od 1. kapitoly.
+Formát: Times New Roman 12, řádkování 1.5, okraje 2.5 cm, titulní strana, obsah, 22 otázek (každá otázka na samostatné stránce + odpověď na následující stránce), číslování stránek od 1. kapitoly.
